@@ -1,0 +1,97 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: rgba(0, 0, 0, 0.1)
+}
+ul,ol{
+    list-style: none;
+}
+#canvas{
+    position: fixed;
+    top: 46px;
+    left: 50px;
+    background: #fff;
+    box-shadow: inset 0px 0px 2px 2px rgba(0,0,0,0.2);
+}
+#actions{
+    position: fixed;
+    top: 0px;
+    left: 10px; 
+}
+#actions svg{
+    width: 1.5em;
+    height: 1.5em;
+    margin:10px;
+    transition: all 0.3s;
+}
+#actions svg.active{
+    color: red;
+    transform: scale(1.3);
+}
+#color{
+    position: fixed;
+    top: 40px;
+    left: 16px;
+}
+#color ul li{
+    width: 1.2em;
+    height: 1.2em;
+    border-radius: 100%;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.8);
+    margin: 14px 0;
+    background: green;
+    transition: all 0.3s;
+}
+#color ul li.active{
+    transform: scale(1.3); 
+}
+#color ul li.black{
+    background: black;
+}
+#color ul li.red{
+    background: red;
+}
+#color ul li.green{
+    background: green;
+}
+#color ul li.blue{
+    background: blue;
+}
+#color ul li.grey{
+    background: grey;
+}
+#color ul li.yellow{
+    background: yellow;
+}
+#color ul li.orange{
+    background: orange;
+}
+#size{
+    position: absolute;
+    top: 320px;
+    left: 7px;
+}
+#size li{
+    width: 34px;
+    height: 6px;
+    margin-bottom: 40px;
+    background: rgba(128,128,128,0.4);
+    transition: all 0.5s;
+}
+#size li.active{
+    background: black;
+}
+#size li:nth-child(2){
+    height: 12px;
+}
+#size li:nth-child(3){
+    height: 18px;
+}
+#size li:nth-child(4){
+    height: 26px;
+}
+#size li:nth-child(5){
+    height: 32px;
+}

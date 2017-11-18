@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-hans">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/index.css">
+    <script src="//at.alicdn.com/t/font_479113_hn42nx7igbbuik9.js"></script>
+    <style type="text/css">
+        .icon {
+            width: 1em;
+            height: 1em;
+            vertical-align: -0.15em;
+            fill: currentColor;
+            overflow: hidden;
+        }
+    </style>
+    <title>简易画板</title>
+</head>
+
+<body>
+    <canvas id="canvas" width="300" height="300"></canvas>
+    <div id="actions">
+        <svg id="pen" class="icon active" aria-hidden="true">
+            <use xlink:href="#icon-pen"></use>
+        </svg>
+        <svg id="eraser" class="icon" aria-hidden="true">
+            <use xlink:href="#icon-eraser"></use>
+        </svg>
+        <svg id="" class="icon" aria-hidden="true">
+            <use xlink:href="#icon-ganggang"></use>
+        </svg>
+        <svg id="clear" class="icon" aria-hidden="true">
+            <use xlink:href="#icon-clear"></use>
+        </svg>
+        <svg id="download" class="icon" aria-hidden="true">
+            <use xlink:href="#icon-Save"></use>
+        </svg>
+    </div>
+    <div id="color">
+        <ul>
+            <li class="black active" id="black"></li>
+            <li class="red" id="red"></li>
+            <li class="green" id="green"></li>
+            <li class="blue" id="blue"></li>
+            <li class="grey" id="grey"></li>
+            <li class="yellow" id="yellow"></li>
+            <li class="orange" id="orange"></li>
+        </ul>
+    </div>
+    <div id="size">
+        <ul>
+            <li id="size_1"></li>
+            <li id="size_2"></li>
+            <li id="size_3"></li>
+            <li id="size_4"></li>
+            <li id="size_5"></li>
+        </ul>
+    </div>
+
+    <script src="./js/index.js"></script>
+</body>
+
+</html>
