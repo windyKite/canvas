@@ -4,7 +4,7 @@ function canvas() {
     var eraserEnabled = false
 
     // 1. 自动调整 canvas 画布大小
-    autoSetCanvasSize(canvas);
+    autoResetCanvas(canvas);
 
     // 2. 监听用户
     // 特性检测
@@ -31,17 +31,21 @@ function canvas() {
     // 工具函数
 
     // 自动调整 canvas 画布大小
-    function autoSetCanvasSize(canvas) {
-        setCanvasSize(canvas)
+    function autoResetCanvas(canvas) {
+        resetCanvas(canvas)
         window.onresize = function () {
-            setCanvasSize(canvas)
+            resetCanvas(canvas)
         }
 
-        function setCanvasSize(canvas) {
+        function resetCanvas(canvas) {
             var pageWidth = document.documentElement.clientWidth
             var pageHeight = document.documentElement.clientHeight
             canvas.width = pageWidth - 50
             canvas.height = pageHeight - 50
+            removeActive()
+            black.classList.add("active")
+            removeSizeActive()
+            size_1.classList.add("active")
         }
     }
 
