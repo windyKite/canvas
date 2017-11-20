@@ -2,6 +2,8 @@ function canvas() {
     var canvas = document.getElementById('canvas')
     var context = canvas.getContext('2d')
     var eraserEnabled = false
+    var penColor = "black"
+    var penSize = 3
 
     // 1. 自动调整 canvas 画布大小
     autoResetCanvas(canvas);
@@ -21,10 +23,10 @@ function canvas() {
     actions()
 
     // 4. 改变笔触大小
-    penSize(context)
+    changePenSize(context)
 
     // 5. 改变颜色
-    color(context)
+    changePencolor(context)
 
     /*******************************************************************************************/
 
@@ -53,10 +55,19 @@ function canvas() {
     function drawLine(x1, y1, x2, y2) {
         context.beginPath()
         context.moveTo(x1, y1)
-        // context.lineWidth = 5
+        context.lineWidth = penSize
+        context.strokeStyle = penColor
         context.lineTo(x2, y2)
         context.closePath()
         context.stroke()
+    }
+
+    // 画圆圈
+    function drawCircle(x,y,radius){
+        context.beginPath()
+        context.fillStyle = context.strokeStyle
+        context.arc(x,y,radius,0,Math.PI*2)
+        context.fill()
     }
 
     // 触摸事件
@@ -115,6 +126,7 @@ function canvas() {
                 if (eraserEnabled) {
                     context.clearRect(x - 10, y - 10, 20, 20)
                 } else {
+                    drawCircle(x,y,(context.lineWidth - 1) / 2)
                     drawLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y)
                     lastPoint = newPoint
                 }
@@ -126,42 +138,42 @@ function canvas() {
         }
     }
 
-    // 笔触颜色
-    function color(context) {
+    // 改变笔触颜色
+    function changePenColor(context) {
         black.onclick = function (e) {
             removeActive()
             black.classList.add("active")
-            context.strokeStyle = "black"
+            penColor = "black"
         }
         red.onclick = function (e) {
             removeActive()
             red.classList.add("active")
-            context.strokeStyle = "red"
+            penColor = "red"
         }
         green.onclick = function (e) {
             removeActive()
             green.classList.add("active")
-            context.strokeStyle = "green"
+            penColor = "green"
         }
         blue.onclick = function (e) {
             removeActive()
             blue.classList.add("active")
-            context.strokeStyle = "blue"
+            penColor = "blue"
         }
         grey.onclick = function (e) {
             removeActive()
             grey.classList.add("active")
-            context.strokeStyle = "grey"
+            penColor = "grey"
         }
         yellow.onclick = function (e) {
             removeActive()
             yellow.classList.add("active")
-            context.strokeStyle = "yellow"
+            penColor = "yellow"
         }
         orange.onclick = function (e) {
             removeActive()
             orange.classList.add("active")
-            context.strokeStyle = "orange"
+            penColor = "orange"
         }
     }
 
@@ -176,31 +188,31 @@ function canvas() {
         orange.classList.remove("active")
     }
 
-    // 笔触大小
-    function penSize(context) {
+    // 改变笔触大小
+    function changePenSize(context) {
         size_1.onclick = function () {
-            context.lineWidth = 1
+            penSize = 3
             removeSizeActive()
             size_1.classList.add("active")
         }
         size_2.onclick = function () {
-            context.lineWidth = 5
+            penSize = 9
             removeSizeActive()
             size_2.classList.add("active")
         }
         size_3.onclick = function () {
-            context.lineWidth = 10
+            penSize = 15
             removeSizeActive()
             size_3.classList.add("active")
         }
         size_4.onclick = function () {
-            context.lineWidth = 15
+            penSize = 21
             removeSizeActive()
             size_4.classList.add("active")
         }
 
         size_5.onclick = function () {
-            context.lineWidth = 20
+            penSize = 27
             removeSizeActive()
             size_5.classList.add("active")
         }
@@ -244,6 +256,7 @@ function canvas() {
                 console.log(eraser.className)
             } else {
                 eraser.classList.remove("active")
+                pen.classList.add("active")
             }
         }
 
