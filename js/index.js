@@ -93,8 +93,8 @@ function canvas() {
                 if (eraserEnabled) {
                     context.clearRect(x - 10, y - 10, 20, 20)
                 } else {
-                    drawCircle(x,y,(context.lineWidth - 1) / 2)
                     drawLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y)
+                    drawCircle(x,y,(context.lineWidth - 1) / 2)
                     lastPoint = newPoint
                 }
             }
@@ -126,9 +126,9 @@ function canvas() {
             if (using) {
                 if (eraserEnabled) {
                     context.clearRect(x - 10, y - 10, 20, 20)
-                } else {
-                    drawCircle(x,y,(context.lineWidth - 1) / 2)
+                } else { 
                     drawLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y)
+                    drawCircle(x,y,(context.lineWidth - 1) / 2)
                     lastPoint = newPoint
                 }
             }
