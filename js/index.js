@@ -26,7 +26,7 @@ function canvas() {
     changePenSize(context)
 
     // 5. 改变颜色
-    changePencolor(context)
+    changePenColor(context)
 
     /*******************************************************************************************/
 
